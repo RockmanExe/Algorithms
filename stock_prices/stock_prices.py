@@ -3,23 +3,15 @@
 import argparse
 
 def find_max_profit(prices,n):
-  profit=[0]
-  max_price=prices[n-1]
+  min_price = prices[0]
+  max_profit = prices[1] - min_price
 
-  for i in range (n-2, 0, -1):
-    if prices[i]>max_price:
-      max_price=prices[i]
-      profit[i]= max(profit[i+1], max_price-prices[i])
+  for i in range(1, len(prices)):
+    price = prices[i]
+    max_profit = max(price - min_price, max_profit)
+    min_price = min(price, min_price)
   
-  min_price=prices[0]
-  for i in range(1,n):
-    if price[i]< min_price:
-      min_price=prices[i]
-    
-    profit[i]=max(profit[i-1], profit[i]+(prices[i]-min_price))
-
-  result= profit[n-1]
-  return result
+  return max_profit
 
 
 if __name__ == '__main__':

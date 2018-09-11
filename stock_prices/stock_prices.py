@@ -2,7 +2,7 @@
 
 import argparse
 
-def find_max_profit(prices,n):
+def find_max_profit(prices):
   min_price = prices[0]
   max_profit = prices[1] - min_price
 
